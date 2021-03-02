@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #202124;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.container-selects{
+  margin: 20px;
+}
+
+/* select opions */
+.container-label-select {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-label-select input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-label-select:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-label-select input:checked ~ .checkmark {
+  background-color: #202124;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-label-select input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-label-select .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* END select options */
+
+.conatiner-button-add-player{
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+.edit-button{
+  visibility: hidden;
+  border: none;
+  background-color: #202124;
+  color: #ffffff;
+  border: 1px solid #202124;
+}
+
+.edit-button:hover, .edit-button:active {
+  background-color: #ffffff;
+  color: #202124;
+  transition: all 0.8s;
+  border: 1px solid #202124;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+}
+
+.form-container-modal{
+  margin-left: 10%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #202124;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-buttons{
+  display: flex;
+  justify-content: end;
+}
+
+.modal-buttons{
+  padding: 0.5em;
+  margin: 0.3em;
+}
+
+.close-button{
+  visibility: visible;
+  border: none;
+  background-color: transparent;
+  color: #e60000;
+  border: 1px solid #e60000;
+}
+
+
+.close-button:hover, .close-button:active {
+  color: #ffffff;
+  background-color: #e60000;
+  transition: all 0.8s;
+}
+
+.add-button{
+  border: none;
+  background-color: #202124;
+  color: #ffffff;
+  border: 1px solid #202124;
+}
+
+.add-button:hover, .add-button:active {
+  background-color: transparent;
+  color: #202124;
+  transition: all 0.8s;
+  border: 1px solid #202124;
+}
+
+.delete-button{
+  visibility: hidden;
+  background-color: #e60000;
+  color: #ffffff;
+  border: 1px solid #e60000;
+}
+
+.delete-button:hover, .delete-button:active {
+  background-color: transparent;
+  color: #e60000;
+  transition: all 0.8s;
+  border: 1px solid #e60000;
+}
+
+
+/* END MODAL */
+
+
+/* MAIN BUTTON */
+.btn-three {
+  color: #ffffff;
+  transition: all 0.5s;
+  position: relative;
+  padding: 1em 4em 1em 4em;
+}
+.btn-three::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.btn-three:hover::before, .btn-three:active::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.btn-three::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: scale(1.2,1.2);
+}
+.btn-three:hover::after, .btn-three:active::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
+/* END MAIN BUTTON */
+
+.all-list{
+  margin: 0 auto;
+}
+
+.cards-align{
+  text-overflow: ellipsis;
+  width: 350px;
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em 2em 1em;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: normal;
+  padding: 2em;
+  border: solid 1px #fff;
+}
+
+
+.bottom-container{
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-top: 3em;
+}
+
+.card-title{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 60px;
+  color: #fff;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 400px;
+}
+
+.card-subtitle{
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: 300px;
+}
+
+.date{
+  font-family: 'Playfair Display', serif;
+  color: #202124;
+  margin-top: 1em;
+  font-size: 20px;
+}
+
+.categories-container{
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 50px;
+}
+
+.cat-p{
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: #202124;
+  padding: 1%;
+  margin-right: 2%;
+}
+
+.empty-cat{
+  visibility: hidden;
+  padding: 2%;
+}
+
+.edit-button-container{
+  width: 250px;
+  height: 50px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  background-color: #202124;
+}
+
+.fa{
+  color: #fff;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 680px) {
+  .cards-align {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 2em 0;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    padding: 2em;
+    border: 1px solid #fff;
+  }
+
+  .bottom-container{
+    width: 250px;
+  }
+
+  .edit-button-container {
+    width: 180px;
+  }
+
+  .form-container-modal{
+    margin: 0 auto;
+  }
+
+}
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1050px) {
+  .cards-align {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em 0 2em 0;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    padding: 2em;
+    border: 1px solid #fff;
+  }
+
+  .form-container-modal{
+    margin: 0 auto;
+  }
+
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/app.js" charset="utf-8"></script>
+    <title>Hello</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+          <!-- add form -->
+          <div class="col-4">
+            <!-- submit button -->
+            <div class="conatiner-button-add-player">
+              <div class="btn btn-three" id="myBtn">
+                <span>+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- list -->
+          <div class="col-10">
+            <div class="row row-cols-4 all-list" id="father-list">
+            </div>
+          </div>
+
+          <!-- MODAL -->
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col-sm-8 col-xs-12">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <div class="col-sm-6 col-xs-12 form-container-modal">
+                        <input type="text" id="name" value="" placeholder="name">
+                        <input type="text" id="last-name" value="" placeholder="last name">
+                        <input type="hidden" id="objId" name="objId" value="">
+                        <div class="container-selects">
+                          <label class="container-label-select">Work
+                            <input type="checkbox" id="work" checked="checked">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="container-label-select">Shopping
+                            <input type="checkbox" id="shopping">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="container-label-select">Diligence
+                            <input type="checkbox" id="diligence">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="container-label-select">Important
+                            <input type="checkbox" id="important">
+                            <span class="checkmark"></span>
+                          </label>
+                        </div>
+                        <div class="modal-buttons">
+                          <button type="button" class="modal-buttons close-button" id="closeButton" onclick="closeModal()">CLOSE</button>
+                          <button type="button" class="modal-buttons add-button" id="addButton" onclick="addPlayer()">Add player</button>
+                          <button type="button" class="modal-buttons edit-button" id="editButton" onclick="editSubmitPlayer()">Edit player</button>
+                          <button type="button" class="modal-buttons delete-button" id="deleteButton" onclick="deletePlayer()">
+                            <i class="fa fa-trash-o" style="font-size:24px; padding-right:0.5em;"></i> Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END Modal content -->
+            </div>
+          <!-- END MODAL -->
+
+
+      </div>
+    </div>
+
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+
+      //MODAL
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("myBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function() {
+        const deleteButton = document.getElementById('deleteButton');
+        deleteButton.style.visibility = "hidden";
+        const addButton = document.getElementById('addButton');
+        addButton.style.display = "block";
+
+        let editButtonSubmit = document.getElementById('editButton');
+        if(editButtonSubmit !== null){
+          editButtonSubmit.style.visibility = "hidden";
+        }
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      //FIRE UP
+      window.onload = startMeUp;
+      let playersStart;
+
+  		function startMeUp() {
+          playersStart = new Players();
+      }
+
+      function addPlayer() {
+        let nameInput = document.getElementById('name');
+        let lastInput = document.getElementById('last-name');
+        let cat1 = document.getElementById('work').checked;
+        let cat2 = document.getElementById('shopping').checked;
+        let cat3 = document.getElementById('diligence').checked;
+        let cat4 = document.getElementById('important').checked;
+        let name = document.getElementById('name').value;
+        let last = document.getElementById('last-name').value;
+
+        let categories = {}
+
+        categories.catOne = cat1 === true && "work"
+        categories.catTwo = cat2 === true && "shopping"
+        categories.catThree = cat3 === true && "diligence"
+        categories.catFour = cat4 === true && "important"
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        today = dd + '/' + mm + '/' + yyyy;
+
+        let d = new Date();
+        const id = d.getTime();
+
+        let objPlayer = {
+          id,
+          name,
+          last,
+          categories,
+          today
+
+        }
+
+        playersStart.newPlayer(objPlayer);
+        nameInput.value = "";
+        lastInput.value = "";
+        modal.style.display = "none";
+      }
+
+      function deletePlayer() {
+        const objId = document.getElementById('objId').value;
+        playersStart.deletePlayer(objId);
+        modal.style.display = "none";
+      }
+
+      function editPlayer(obj){
+        const deleteButton = document.getElementById('deleteButton');
+        deleteButton.style.visibility = "visible";
+        modal.style.display = "block";
+        const addButton = document.getElementById('addButton');
+        addButton.style.display = "none";
+        const objId = document.getElementById('objId');
+        const editButton = document.getElementById('editButton');
+        const nameInput = document.getElementById('name');
+        const lastInput = document.getElementById('last-name');
+        const checkWork = document.getElementById('work');
+        const checkShopping = document.getElementById('shopping');
+        const checkDiligence = document.getElementById('diligence');
+        const checkImportant = document.getElementById('important');
+
+        for (const property in obj.categories) {
+          if( obj.categories[property] !== false){
+            if( obj.categories[property] === "work" ){
+              checkWork.setAttribute("checked", "checked");
+            } else if( obj.categories[property] === "shopping" ){
+              checkShopping.setAttribute("checked", "checked");
+            } else if( obj.categories[property] === "diligence" ){
+              checkDiligence.setAttribute("checked", "checked");
+            } else{
+              checkImportant.setAttribute("checked", "checked");
+            }
+          } else {
+            if( obj.categories[property] !== "work" ){
+              checkWork.setAttribute("checked", "");
+            } else if( obj.categories[property] !== "shopping" ){
+              checkShopping.setAttribute("checked", "");
+            } else if( obj.categories[property] !== "diligence" ){
+              checkDiligence.setAttribute("checked", "");
+            } else{
+              checkImportant.setAttribute("checked", "");
+            }
+          }
+        }
+
+        if(obj.objId){
+          let id = parseInt(obj.objId, 10);
+          objId.value = id;
+        } else {
+          objId.value = obj.id;
+        }
+
+        nameInput.value = obj.name;
+        lastInput.value = obj.last;
+        editButton.style.visibility = "visible";
+
+      }
+
+      function editSubmitPlayer(){
+        const objIdInput = document.getElementById('objId');
+        const objId = objIdInput.value;
+        const nameInput = document.getElementById('name');
+        const lastInput = document.getElementById('last-name');
+        let cat1 = document.getElementById('work').checked;
+        let cat2 = document.getElementById('shopping').checked;
+        let cat3 = document.getElementById('diligence').checked;
+        let cat4 = document.getElementById('important').checked;
+        let name = document.getElementById('name').value;
+        let last = document.getElementById('last-name').value;
+
+        let categories = {}
+
+        categories.catOne = cat1 === true && "work"
+        categories.catTwo = cat2 === true && "shopping"
+        categories.catThree = cat3 === true && "diligence"
+        categories.catFour = cat4 === true && "important"
+
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        today = dd + '/' + mm + '/' + yyyy;
+
+        let objPlayer = {
+          objId,
+          name,
+          last,
+          categories,
+          today
+        }
+
+        console.log(objPlayer);
+
+        playersStart.editPlayer(objPlayer);
+        objIdInput.value = "";
+        nameInput.value = "";
+        lastInput.value = "";
+        modal.style.display = "none";
+      }
+
+      function closeModal(){
+        const objIdInput = document.getElementById('objId');
+        const nameInput = document.getElementById('name');
+        const lastInput = document.getElementById('last-name');
+        objIdInput.value = "";
+        nameInput.value = "";
+        lastInput.value = "";
+        modal.style.display = "none";
+      }
+
+
+    </script>
+
+  </body>
+</html>
