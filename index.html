@@ -38,9 +38,9 @@
                   <div class="col-sm-8 col-xs-12">
                     <div class="modal-content">
                       <span class="close">&times;</span>
-                      <div class="col-sm-6 col-xs-12 form-container-modal">
-                        <input type="text" id="name" value="" placeholder="name">
-                        <input type="text" id="last-name" value="" placeholder="last name">
+                      <div class="col-sm-12 col-xs-12 form-container-modal">
+                        <input type="text" class="input-author" id="name" value="" placeholder="Author" required>
+                        <input type="text" class="input-quote" id="last-name" value="" placeholder="Quote" required>
                         <input type="hidden" id="objId" name="objId" value="">
                         <div class="container-selects">
                           <label class="container-label-select">Work
@@ -62,8 +62,8 @@
                         </div>
                         <div class="modal-buttons">
                           <button type="button" class="modal-buttons close-button" id="closeButton" onclick="closeModal()">CLOSE</button>
-                          <button type="button" class="modal-buttons add-button" id="addButton" onclick="addPlayer()">Add player</button>
-                          <button type="button" class="modal-buttons edit-button" id="editButton" onclick="editSubmitPlayer()">Edit player</button>
+                          <button type="button" class="modal-buttons add-button" id="addButton" onclick="addPlayer()">ADD</button>
+                          <button type="button" class="modal-buttons edit-button" id="editButton" onclick="editSubmitPlayer()">Edit</button>
                           <button type="button" class="modal-buttons delete-button" id="deleteButton" onclick="deletePlayer()">
                             <i class="fa fa-trash-o" style="font-size:24px; padding-right:0.5em;"></i> Delete
                           </button>
@@ -79,6 +79,13 @@
 
 
       </div>
+    </div>
+
+
+
+    <div class="col-sm-6 col-xs-8 alert-hidden alert-danger" role="alert" id="error-alert-message">
+      <strong>Holy guacamole!</strong> You should fill up those fields below.
+      <!--<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
     </div>
 
     <!-- BOOTSTRAP -->
@@ -133,6 +140,7 @@
         let cat4 = document.getElementById('important').checked;
         let name = document.getElementById('name').value;
         let last = document.getElementById('last-name').value;
+        const alertBox = document.getElementById('error-alert-message');
 
         let categories = {}
 
@@ -159,10 +167,32 @@
 
         }
 
-        playersStart.newPlayer(objPlayer);
-        nameInput.value = "";
-        lastInput.value = "";
-        modal.style.display = "none";
+        if( name === "" || last === ""){
+          if( name === "" ){
+            alertBox.classList.remove("alert-hidden");
+            alertBox.classList.add("alert-custom-error");
+            nameInput.focus();
+            /*setTimeout(function(){
+              alertBox.classList.add("alert-hidden");
+              alertBox.classList.remove("alert-custom-error");
+            }, 6000);*/
+          } else {
+            alertBox.classList.remove("alert-hidden");
+            alertBox.classList.add("alert-custom-error");
+            lastInput.focus();
+            /*setTimeout(function(){
+              alertBox.classList.add("alert-hidden");
+              alertBox.classList.remove("alert-custom-error");
+            }, 6000);*/
+          }
+        } else{
+          playersStart.newPlayer(objPlayer);
+          nameInput.value = "";
+          lastInput.value = "";
+          modal.style.display = "none";
+        }
+
+
       }
 
       function deletePlayer() {
