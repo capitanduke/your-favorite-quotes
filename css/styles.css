@@ -128,12 +128,26 @@ body{
   width: 50%;
 }
 
-.input-author-error{
-  border: solid 1px red;
+.input-author{
+  border-bottom: solid 1px #000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
 }
 
-.input-quote-error{
-  border: solid 1px red;
+input[type="text"]:focus{
+  outline: none;
+  border-bottom: solid 1px #000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.input-quote{
+  border-bottom: solid 1px #000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
 }
 
 /* Modal Content */
@@ -668,6 +682,5 @@ body{
   .input-quote-error{
     border: solid 1px red;
   }
-
 
 }
