@@ -39,7 +39,7 @@
               <!-- Modal content -->
               <div class="container-fluid">
                 <div class="row justify-content-center">
-                  <div class="col-sm-8 col-xs-12">
+                  <div class="col-md-12 col-sm-8 col-xs-12">
                     <div class="modal-content">
                       <span class="close">&times;</span>
                       <div class="col-sm-12 col-xs-12 form-container-modal">
@@ -140,6 +140,7 @@
         const alertBox = document.getElementById('error-alert-message');
         const ElementBody = document.getElementsByTagName("BODY")[0];
 
+        nameInput.focus();
 
         let categories = {}
 
@@ -176,10 +177,10 @@
             });
             nameInput.focus();
           } else {
-            document.querySelector(".box").className = "box";
             window.requestAnimationFrame(function(time) {
               window.requestAnimationFrame(function(time) {
-                document.querySelector(".box").className = "box changing";
+                alertBox.classList.add("alert-custom-error");
+                alertBox.classList.remove("alert-hidden");
               });
             });
             lastInput.focus();

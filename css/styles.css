@@ -362,14 +362,14 @@ body{
 
 /* ALERTS */
 @keyframes colorchange {
-  0%,100% { opacity: 0; top: 1%; }
+  0%,100% { opacity: 0; top: -15%; }
   50% { opacity: 1; top: 15%; }
 }
 
 .box {
   opacity: 0;
   z-index: 10;
-  top: 15%;
+  top: -50%;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 1%);
@@ -387,8 +387,124 @@ body{
 
 /* END ALERTS */
 
+@media only screen and (min-device-width: 220px) and (max-device-width: 320px) {
+  .cards-align {
+    width: 250px;
+    max-width: 250px;
+    height: auto;
+    margin: 0;
+  }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 680px) {
+  .card-title{
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .card-subtitle{
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .cat-p{
+    font-size: 10px;
+  }
+
+  .bottom-container{
+    width: 200px;
+  }
+
+  .edit-button-container {
+    width: 180px;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
+
+  .form-container-modal{
+    margin: 0 auto;
+  }
+
+  .container-label-select{
+    font-size: 14px !important;
+  }
+
+  .input-author{
+    width: 60%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+  }
+
+  .input-quote{
+    width: 60%;
+    margin-bottom: 2%;
+  }
+
+  .add-button{
+    font-size: 10px;
+    padding: 14px;
+  }
+
+  .modal-buttons .close-button{
+    font-size: 10px;
+    padding: 14px;
+    margin-right: 1em;
+    height: 50%;
+  }
+
+  .modal-buttons .add-button{
+    font-size: 10px;
+    padding: 14px;
+    margin-right: 1em;
+    height: 50%;
+  }
+
+  .modal-buttons .edit-button{
+    font-size: 10px;
+    padding: 14px;
+    margin-right: 1em;
+    height: 50%;
+  }
+
+  .modal-buttons .delete-button{
+    font-size: 10px;
+    padding: 14px;
+    margin-right: 1em;
+    height: 50%;
+  }
+
+  #deleteButton{
+    font-size: 10px;
+    padding-right: 1em;
+  }
+
+  .modal-buttons{
+    margin-left: -2%;
+  }
+
+  .edit-button{
+    font-size: 10px;
+    padding: 14px;
+  }
+
+  .delete-button{
+    font-size: 10px;
+    padding: 14px;
+  }
+
+  .fa {
+    font-size: 14px !important;
+  }
+
+
+}
+
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 680px) {
   .cards-align {
     width: 100%;
     height: auto;
@@ -403,11 +519,17 @@ body{
   }
 
   .card-title{
-    padding-left: 20px;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .card-subtitle{
-    padding-left: 20px;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .bottom-container{
@@ -440,10 +562,68 @@ body{
 
 }
 
-@media only screen and (min-device-width: 800px) and (max-device-width: 1050px) {
+@media only screen and (min-device-width: 680px) and (max-device-width: 1024px) {
   .cards-align {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 2em 0;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    padding: 2em;
+    border: 1px solid #fff;
+  }
+
+  .card-title{
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .card-subtitle{
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .bottom-container{
+    width: 250px;
+  }
+
+  .edit-button-container {
+    width: 180px;
+  }
+
+  .modal-content {
     width: 100%;
-    max-width: 300px;
+  }
+
+  .form-container-modal{
+    margin: 0 auto;
+  }
+
+  .input-author{
+    width: 80%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+  }
+
+  .input-quote{
+    width: 80%;
+    margin-bottom: 2%;
+  }
+
+
+}
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1650px) {
+  .cards-align {
+    width: 350px;
+    max-width: 350px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -457,7 +637,7 @@ body{
   }
 
   .modal-content {
-    width: 100%;
+    width: 60%;
   }
 
   .form-container-modal{
@@ -465,6 +645,12 @@ body{
   }
 
   .input-author{
+    width: 80%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+  }
+
+  .input-quote{
     width: 80%;
     margin-bottom: 2%;
     margin-top: 5%;
