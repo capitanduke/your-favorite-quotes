@@ -397,9 +397,130 @@ input[type="text"]:focus{
 .changing {
   animation: colorchange 10s;
 }
-
-
 /* END ALERTS */
+
+
+/* MENU BOX */
+
+.container-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-hello{
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hello{
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+}
+
+.underline-hello{
+  border-bottom: solid 1px #fff;
+  width: 30%;
+}
+
+.box-hello {
+  opacity: 0;
+  z-index: 10;
+  top: 10%;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 1%);
+  padding: 2em;
+  text-align: center;
+  width: 50%;
+  height: 1px;
+  background-color: #fff;
+}
+
+.animationBox{
+  animation-name: gehen;
+    -webkit-animation-name: gehen;
+
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+
+     animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes gehen {
+  0% { opacity: 0; height: 15px; top: 1%; }
+  50% { opacity: 0; height: 35px; top: 5%; }
+  100% { opacity: 1; height: 150px; top: 10%; }
+}
+
+.back{
+  animation-name: back;
+    -webkit-animation-name: back;
+
+    animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+
+     animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes back {
+  0% { opacity: 1; height: 150px; top: 10%; }
+  50% { opacity: 0; height: 35px; top: 5%; }
+  100% { opacity: 0; height: 15px; top: 1%; }
+}
+
+.animationClose{
+  animation-name: fadeMe;
+    -webkit-animation-name: fadeMe;
+
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+
+     animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fadeMe {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+}
+
+/*.container-menu-box{
+  display: flex;
+  justify-content: center;
+}
+
+.closeXs{
+  opacity: 0;
+  display: flex;
+  justify-content:flex-end;
+  margin-right: -2.5em;
+  color: #ffffff;
+}
+
+.boxMenu{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-top: solid 1px #ffffff;
+  border-right: solid 1px #ffffff;
+}*/
+
+/* END MENU BOX */
 
 @media only screen and (min-device-width: 220px) and (max-device-width: 320px) {
   .cards-align {

@@ -14,16 +14,40 @@
   <body>
     <div class="container-fluid">
       <div class="row justify-content-center">
-          <!-- add form -->
-          <div class="col-4">
+
+        <!-- menu -->
+        <div class="col-md-12">
+          <div class="row justify-content-center container-menu">
+            <!-- button -->
+            <div class="col-md-4 col-xs-8">
+              <div class="container-hello" onClick="test()">
+                <h1 class="hello">HELLO</h1>
+                <div class="underline-hello"></div>
+              </div>
+              <!--<div class="container-menu-box">
+                <div class="closeXs" id="closeXs">X</div>
+                <div class="boxMenu" id="boxMenu"></div>
+              </div>-->
+            </div>
             <!-- submit button -->
-            <div class="conatiner-button-add-player">
-              <div class="btn btn-three" id="myBtn">
-                <span>+</span>
+            <div class="col-md-6 col-xs-8">
+              <div class="conatiner-button-add-player">
+                <div class="btn btn-three" id="myBtn">
+                  <span>+</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <!-- end menu -->
 
+
+          <!-- alert -->
+          <div class="col-sm-6 col-xs-8 box-hello">
+            <strong onclick="backHello()">HELLO</strong>
+          </div>
+
+          <!-- alert -->
           <div class="col-sm-6 col-xs-8 box">
             <strong>Holy guacamole!</strong> You should fill up those fields below.
           </div>
@@ -91,34 +115,6 @@
 
 
     <script type="text/javascript">
-
-      //MODAL
-      let modal = document.getElementById("myModal");
-      let btn = document.getElementById("myBtn");
-      let span = document.getElementsByClassName("close")[0];
-
-      btn.onclick = function() {
-        const deleteButton = document.getElementById('deleteButton');
-        deleteButton.style.visibility = "hidden";
-        const addButton = document.getElementById('addButton');
-        addButton.style.display = "block";
-
-        let editButtonSubmit = document.getElementById('editButton');
-        if(editButtonSubmit !== null){
-          editButtonSubmit.style.visibility = "hidden";
-        }
-        modal.style.display = "block";
-      }
-
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
 
       //FIRE UP
       window.onload = startMeUp;
@@ -303,6 +299,53 @@
         nameInput.value = "";
         lastInput.value = "";
         modal.style.display = "none";
+      }
+
+      //MODAL
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("myBtn");
+      let span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function() {
+        const deleteButton = document.getElementById('deleteButton');
+        deleteButton.style.visibility = "hidden";
+        const addButton = document.getElementById('addButton');
+        addButton.style.display = "block";
+
+        let editButtonSubmit = document.getElementById('editButton');
+        if(editButtonSubmit !== null){
+          editButtonSubmit.style.visibility = "hidden";
+        }
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      //boxMenu
+      function test(){
+        document.querySelector(".box-hello").className = "box-hello";
+        window.requestAnimationFrame(function(time) {
+          window.requestAnimationFrame(function(time) {
+            document.querySelector(".box-hello").className = "box-hello animationBox";
+          });
+        });
+      }
+
+      function backHello(){
+        document.querySelector(".box-hello").className = "box-hello";
+        window.requestAnimationFrame(function(time) {
+          window.requestAnimationFrame(function(time) {
+            document.querySelector(".box-hello").className = "box-hello back";
+          });
+        });
       }
 
 
