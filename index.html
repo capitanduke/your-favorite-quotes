@@ -18,23 +18,19 @@
         <!-- menu -->
         <div class="col-md-12">
           <div class="row justify-content-center container-menu">
-            <!-- button -->
-            <div class="col-md-4 col-xs-8">
-              <div class="container-hello" onClick="test()">
-                <h1 class="hello">HELLO</h1>
-                <div class="underline-hello"></div>
-              </div>
-              <!--<div class="container-menu-box">
-                <div class="closeXs" id="closeXs">X</div>
-                <div class="boxMenu" id="boxMenu"></div>
-              </div>-->
-            </div>
             <!-- submit button -->
             <div class="col-md-6 col-xs-8">
               <div class="conatiner-button-add-player">
                 <div class="btn btn-three" id="myBtn">
                   <span>+</span>
                 </div>
+              </div>
+            </div>
+            <!-- button -->
+            <div class="col-md-6 col-xs-8">
+              <div class="container-hello" onClick="test()">
+                <p class="hello">HELLO</p>
+                <div class="underline-hello"></div>
               </div>
             </div>
           </div>
@@ -44,7 +40,22 @@
 
           <!-- alert -->
           <div class="col-sm-6 col-xs-8 box-hello">
-            <strong onclick="backHello()">HELLO</strong>
+            <div class="close-hello" onclick="backHello()">
+              <strong>X</strong>
+            </div>
+            <div class="hello-intro">
+              <p class="my-intro">
+                Hello Wordl &#128526; My name is Raul Rincones and <b class="link-social">I'm a Frontend Developer</b>. Here is my
+                <a href="https://www.linkedin.com/in/raulrinconesizaguirre/" target="_blank" class="link-social"><b>LINKEDIN</b></a>
+                and my <a href="https://github.com/capitanduke?tab=repositories" target="_blank" class="link-social"><b>GITHUB</b></a>.
+                This site was developed by pure JavaScript.
+                <br>
+                Wiesbaden, Deutschland 2021.
+                <br>
+                <div class="HeartAnimation"></div>
+                <span class="click-me">Click me to like me</span>
+              </p>
+            </div>
           </div>
 
           <!-- alert -->
@@ -347,6 +358,11 @@
           });
         });
       }
+
+      //CLICK HeartAnimation
+       document.querySelector(".HeartAnimation").addEventListener('click', function(){
+        document.querySelector(".HeartAnimation").className = "HeartAnimation animate";
+      });
 
 
     </script>
