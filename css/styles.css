@@ -513,6 +513,10 @@ input[type="text"]:focus{
   margin: 0 auto;
 }
 
+.close-intro{
+  display: none;
+}
+
 .hello-intro{
   width: 80%;
   margin: 0 auto;

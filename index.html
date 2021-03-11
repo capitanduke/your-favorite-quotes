@@ -41,7 +41,7 @@
           <!-- alert -->
           <div class="col-sm-6 col-xs-8 box-hello">
             <div class="close-hello" onclick="backHello()">
-              <strong>X</strong>
+              <strong class="close-intro" id="close-intro">X</strong>
             </div>
             <div class="hello-intro">
               <p class="my-intro" id="my-intro">
@@ -347,22 +347,26 @@
       //boxMenu
       function hello(){
         const intro = document.getElementById('my-intro');
+        const closeIntro = document.getElementById('close-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
             document.querySelector(".box-hello").className = "box-hello animationBox";
-            intro.style.display = "block"
+            intro.style.display = "block";
+            closeIntro.style.display = "block";
           });
         });
       }
 
       function backHello(){
         const intro = document.getElementById('my-intro');
+        const closeIntro = document.getElementById('close-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
             document.querySelector(".box-hello").className = "box-hello back";
-            intro.style.display = "none"
+            intro.style.display = "none";
+            closeIntro.style.display = "none";
           });
         });
       }
