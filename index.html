@@ -28,7 +28,7 @@
             </div>
             <!-- button -->
             <div class="col-md-6 col-xs-8">
-              <div class="container-hello" onClick="test()">
+              <div class="container-hello" onClick="hello()">
                 <p class="hello">HELLO</p>
                 <div class="underline-hello"></div>
               </div>
@@ -43,7 +43,7 @@
             <div class="close-hello" onclick="backHello()">
               <strong>X</strong>
             </div>
-            <div class="hello-intro">
+            <div class="hello-intro" id="hello-intro">
               <p class="my-intro">
                 Hello Wordl, my name is Raul Rincones and <b class="link-social">I'm a Frontend Developer</b>. Here is my
                 <a href="https://www.linkedin.com/in/raulrinconesizaguirre/" target="_blank" class="link-social"><b>LINKEDIN</b></a>
@@ -345,20 +345,24 @@
       }
 
       //boxMenu
-      function test(){
+      function hello(){
+        const intro = document.getElementById('hello-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
             document.querySelector(".box-hello").className = "box-hello animationBox";
+            intro.style.display = "block"
           });
         });
       }
 
       function backHello(){
+        const intro = document.getElementById('hello-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
             document.querySelector(".box-hello").className = "box-hello back";
+            intro.style.display = "none"
           });
         });
       }
