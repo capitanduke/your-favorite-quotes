@@ -62,17 +62,17 @@ class Player {
 
     for (const property in obj.categories) {
       if( obj.categories[property] !== false){
-        if( obj.categories[property] === "work" ){
+        if( obj.categories[property] === "love" ){
           work.innerHTML = obj.categories.catOne;
           catsContainer.appendChild(work);
           bottomContainer.appendChild(catsContainer);
           cardContainer.appendChild(bottomContainer);
-        } else if( obj.categories[property] === "shopping" ){
+        } else if( obj.categories[property] === "Motivation" ){
           shopping.innerHTML = obj.categories.catTwo;
           catsContainer.appendChild(shopping);
           bottomContainer.appendChild(catsContainer);
           cardContainer.appendChild(bottomContainer);
-        } else if( obj.categories[property] === "diligence" ){
+        } else if( obj.categories[property] === "Live" ){
           diligence.innerHTML = obj.categories.catThree;
           catsContainer.appendChild(diligence);
           bottomContainer.appendChild(catsContainer);
@@ -153,7 +153,7 @@ class Players{
 
         for(const cats in obj.categories){
           if(cats === "catOne"){
-            if(obj.categories[cats] === "work"){
+            if(obj.categories[cats] === "love"){
               value.cat1 = obj.categories[cats];
               elements[2].childNodes[1].childNodes[0].innerHTML = value.cat1;
               if(elements[2].childNodes[1].childNodes[0].classList.contains('empty-cat')){
@@ -167,7 +167,7 @@ class Players{
               elements[2].childNodes[1].childNodes[0].classList.add("empty-cat");
             }
           } else if(cats === "catTwo"){
-            if(obj.categories[cats] === "shopping"){
+            if(obj.categories[cats] === "Motivation"){
               value.cat2 = obj.categories[cats];
               elements[2].childNodes[1].childNodes[1].innerHTML = value.cat2;
               if(elements[2].childNodes[1].childNodes[1].classList.contains('empty-cat')){
@@ -181,7 +181,7 @@ class Players{
               elements[2].childNodes[1].childNodes[1].classList.remove("cat-p");
             }
           } else if(cats === "catThree"){
-            if(obj.categories[cats] === "diligence"){
+            if(obj.categories[cats] === "Live"){
               value.cat3 = obj.categories[cats];
               elements[2].childNodes[1].childNodes[2].innerHTML = value.cat3;
               if(elements[2].childNodes[1].childNodes[2].classList.contains('empty-cat')){
@@ -195,7 +195,7 @@ class Players{
               elements[2].childNodes[1].childNodes[2].classList.remove("cat-p");
             }
           } else if(cats === "catFour"){
-            if(obj.categories[cats] === "important"){
+            if(obj.categories[cats] === "Success"){
               value.cat4 = obj.categories[cats];
               elements[2].childNodes[1].childNodes[3].innerHTML = value.cat4;
               if(elements[2].childNodes[1].childNodes[3].classList.contains('empty-cat')){

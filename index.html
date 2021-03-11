@@ -45,7 +45,7 @@
             </div>
             <div class="hello-intro">
               <p class="my-intro">
-                Hello Wordl &#128526; My name is Raul Rincones and <b class="link-social">I'm a Frontend Developer</b>. Here is my
+                Hello Wordl, my name is Raul Rincones and <b class="link-social">I'm a Frontend Developer</b>. Here is my
                 <a href="https://www.linkedin.com/in/raulrinconesizaguirre/" target="_blank" class="link-social"><b>LINKEDIN</b></a>
                 and my <a href="https://github.com/capitanduke?tab=repositories" target="_blank" class="link-social"><b>GITHUB</b></a>.
                 This site was developed by pure JavaScript.
@@ -82,19 +82,19 @@
                         <input type="text" class="input-quote" id="last-name" value="" placeholder="Quote" required>
                         <input type="hidden" id="objId" name="objId" value="">
                         <div class="container-selects">
-                          <label class="container-label-select">Work
+                          <label class="container-label-select">Love
                             <input type="checkbox" id="work" checked="checked">
                             <span class="checkmark"></span>
                           </label>
-                          <label class="container-label-select">Shopping
+                          <label class="container-label-select">Motivation
                             <input type="checkbox" id="shopping">
                             <span class="checkmark"></span>
                           </label>
-                          <label class="container-label-select">Diligence
+                          <label class="container-label-select">Live
                             <input type="checkbox" id="diligence">
                             <span class="checkmark"></span>
                           </label>
-                          <label class="container-label-select">Important
+                          <label class="container-label-select">Success
                             <input type="checkbox" id="important">
                             <span class="checkmark"></span>
                           </label>
@@ -151,10 +151,10 @@
 
         let categories = {}
 
-        categories.catOne = cat1 === true && "work"
-        categories.catTwo = cat2 === true && "shopping"
-        categories.catThree = cat3 === true && "diligence"
-        categories.catFour = cat4 === true && "important"
+        categories.catOne = cat1 === true && "love"
+        categories.catTwo = cat2 === true && "Motivation"
+        categories.catThree = cat3 === true && "Live"
+        categories.catFour = cat4 === true && "Success"
 
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
@@ -225,21 +225,21 @@
 
         for (const property in obj.categories) {
           if( obj.categories[property] !== false){
-            if( obj.categories[property] === "work" ){
+            if( obj.categories[property] === "love" ){
               checkWork.setAttribute("checked", "checked");
-            } else if( obj.categories[property] === "shopping" ){
+            } else if( obj.categories[property] === "Motivation" ){
               checkShopping.setAttribute("checked", "checked");
-            } else if( obj.categories[property] === "diligence" ){
+            } else if( obj.categories[property] === "Live" ){
               checkDiligence.setAttribute("checked", "checked");
             } else{
               checkImportant.setAttribute("checked", "checked");
             }
           } else {
-            if( obj.categories[property] !== "work" ){
+            if( obj.categories[property] !== "love" ){
               checkWork.setAttribute("checked", "");
-            } else if( obj.categories[property] !== "shopping" ){
+            } else if( obj.categories[property] !== "Motivation" ){
               checkShopping.setAttribute("checked", "");
-            } else if( obj.categories[property] !== "diligence" ){
+            } else if( obj.categories[property] !== "Live" ){
               checkDiligence.setAttribute("checked", "");
             } else{
               checkImportant.setAttribute("checked", "");
@@ -274,10 +274,10 @@
 
         let categories = {}
 
-        categories.catOne = cat1 === true && "work"
-        categories.catTwo = cat2 === true && "shopping"
-        categories.catThree = cat3 === true && "diligence"
-        categories.catFour = cat4 === true && "important"
+        categories.catOne = cat1 === true && "love"
+        categories.catTwo = cat2 === true && "Motivation"
+        categories.catThree = cat3 === true && "Live"
+        categories.catFour = cat4 === true && "Success"
 
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
