@@ -205,6 +205,10 @@
       function deletePlayer() {
         const objId = document.getElementById('objId').value;
         playersStart.deletePlayer(objId);
+        const nameInput = document.getElementById('name');
+        const lastInput = document.getElementById('last-name');
+        nameInput.value = "";
+        lastInput.value = "";
         modal.style.display = "none";
       }
 
