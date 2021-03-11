@@ -514,16 +514,16 @@ input[type="text"]:focus{
 }
 
 .close-intro{
-  display: none;
+  visibility: : hidden;
 }
 
 .hello-intro{
+  visibility: : hidden;
   width: 80%;
   margin: 0 auto;
 }
 
 .my-intro{
-  display: none;
   font-family: 'Playfair Display', serif;
   line-height: 2em;
 }
