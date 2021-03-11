@@ -43,8 +43,8 @@
             <div class="close-hello" onclick="backHello()">
               <strong>X</strong>
             </div>
-            <div class="hello-intro" id="hello-intro">
-              <p class="my-intro">
+            <div class="hello-intro">
+              <p class="my-intro" id="my-intro">
                 Hello Wordl, my name is Raul Rincones and <b class="link-social">I'm a Frontend Developer</b>. Here is my
                 <a href="https://www.linkedin.com/in/raulrinconesizaguirre/" target="_blank" class="link-social"><b>LINKEDIN</b></a>
                 and my <a href="https://github.com/capitanduke?tab=repositories" target="_blank" class="link-social"><b>GITHUB</b></a>.
@@ -346,7 +346,7 @@
 
       //boxMenu
       function hello(){
-        const intro = document.getElementById('hello-intro');
+        const intro = document.getElementById('my-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
@@ -357,7 +357,7 @@
       }
 
       function backHello(){
-        const intro = document.getElementById('hello-intro');
+        const intro = document.getElementById('my-intro');
         document.querySelector(".box-hello").className = "box-hello";
         window.requestAnimationFrame(function(time) {
           window.requestAnimationFrame(function(time) {
